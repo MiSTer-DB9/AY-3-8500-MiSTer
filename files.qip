@@ -1,4 +1,4 @@
-set_global_assignment -name VERILOG_FILE ay38500NTSC.v
-set_global_assignment -name SYSTEMVERILOG_FILE AY38500top.sv
+set_global_assignment -name VERILOG_FILE rtl/ay38500NTSC.v
+set_global_assignment -name SYSTEMVERILOG_FILE AY-3-8500.sv
 set_global_assignment -name VERILOG_FILE joydb9md.v
 set_global_assignment -name VERILOG_FILE joydb15.v
