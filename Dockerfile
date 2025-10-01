@@ -3,4 +3,4 @@ LABEL maintainer="theypsilon@gmail.com"
 WORKDIR /project
 ADD . /project
 RUN /opt/intelFPGA_lite/quartus/bin/quartus_sh --flow compile AY-3-8500.qpf
-CMD cat /project/output_files/AY-3-8500.rbf
+CMD ["cat", "/project/output_files/AY-3-8500.rbf"]
