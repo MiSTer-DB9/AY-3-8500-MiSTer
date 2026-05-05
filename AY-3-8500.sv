@@ -183,8 +183,8 @@ assign USER_PP = USER_PP_DRIVE;
 assign ADC_BUS  = 'Z;
 // [MiSTer-DB9 BEGIN] - DB9/SNAC8 support: joydb wrapper
 wire         CLK_JOY = CLK_50M;                 // Assign clock between 40-50Mhz
-wire   [1:0] joy_type        = status[127:126]; // 0=Off, 1=Saturn, 2=DB9MD, 3=DB15
-wire         joy_2p          = status[125];
+wire   [1:0] joy_type        = status[63:62];   // 0=Off, 1=Saturn, 2=DB9MD, 3=DB15
+wire         joy_2p          = status[61];
 wire         joy_db9md_en    = (joy_type == 2'd2);
 wire         joy_db15_en     = (joy_type == 2'd3);
 wire         joy_any_en      = |joy_type;
@@ -250,8 +250,8 @@ localparam CONF_STR = {
 	"O7A,Color Pallette,Mono,Greyscale,RGB1,RGB2,Field,Ice,Christmas,Marksman,Las Vegas;",
 	"-;",
 		// [MiSTer-DB9-Pro BEGIN] - Saturn-first joy_type (canonical bit notation)
-	"O[127:126],UserIO Joystick,Off,Saturn,DB9MD,DB15;",
-	"O[125],UserIO Players, 1 Player,2 Players;",
+	"O[63:62],UserIO Joystick,Off,Saturn,DB9MD,DB15;",
+	"O[61],UserIO Players, 1 Player,2 Players;",
 	// [MiSTer-DB9-Pro END]
 	"-;",
 	"OBD,Game,Tennis,Soccer,Handicap,Squash,Practice;", //,Rifle 1,Rifle 2;",
@@ -302,9 +302,7 @@ end
 
 ///////////////////////IN+OUT///////////////////////
 
-// [MiSTer-DB9 BEGIN] - widened to 128 bits for joy_type at [127:126] and joy_2p at [125]
-wire [127:0] status;
-// [MiSTer-DB9 END]
+wire [63:0] status;
 wire  [1:0] buttons;
 wire        forced_scandoubler;
 
