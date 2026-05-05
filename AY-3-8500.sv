@@ -182,6 +182,7 @@ assign USER_PP = USER_PP_DRIVE;
 // [MiSTer-DB9 END]
 assign ADC_BUS  = 'Z;
 // [MiSTer-DB9 BEGIN] - DB9/SNAC8 support: joydb wrapper
+// [MiSTer-DB9 RESERVED status bits: 63:62 61]
 wire         CLK_JOY = CLK_50M;                 // Assign clock between 40-50Mhz
 wire   [1:0] joy_type        = status[63:62];   // 0=Off, 1=Saturn, 2=DB9MD, 3=DB15
 wire         joy_2p          = status[61];
