@@ -28,7 +28,7 @@ module emu
 	input         RESET,
 
 	//Must be passed to hps_io module
-	inout  [48:0] HPS_BUS,
+	inout  [45:0] HPS_BUS,
 
 	//Base video clock. Usually equals to CLK_SYS.
 	output        CLK_VIDEO,
@@ -357,8 +357,8 @@ wire  [7:0] paddle_1;
 wire [21:0] gamma_bus;
 
 // S U D L R 
-wire [31:0] joy0 = joydb_1ena ? (OSD_STATUS? 32'b000000 : joydb_1[4:0]) : joy0_USB;
-wire [31:0] joy1 = joydb_2ena ? (OSD_STATUS? 32'b000000 : joydb_2[4:0]) : joydb_1ena ? joy0_USB : joy1_USB;
+wire [31:0] joy0 = joydb_1ena ? (OSD_STATUS? 32'b000000 : joydb_1_mapped[4:0]) : joy0_USB;
+wire [31:0] joy1 = joydb_2ena ? (OSD_STATUS? 32'b000000 : joydb_2_mapped[4:0]) : joydb_1ena ? joy0_USB : joy1_USB;
 
 
 
